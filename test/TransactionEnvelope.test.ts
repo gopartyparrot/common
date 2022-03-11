@@ -5,7 +5,7 @@ import {
 } from "@project-serum/associated-token";
 import { TokenInstructions } from "@project-serum/token";
 import { Keypair, SystemInstruction, SystemProgram } from "@solana/web3.js";
-import { TransactionEnvelope } from "../src";
+import { RetriableTransactionEnvelope } from "../src";
 import { provider } from "./utils/env";
 
 describe("TransactionEnvelope", () => {
@@ -20,7 +20,7 @@ describe("TransactionEnvelope", () => {
       })
     );
 
-    const txEnvolope = new TransactionEnvelope(provider, instructions);
+    const txEnvolope = new RetriableTransactionEnvelope(provider, instructions);
 
     const res = await txEnvolope.confirm();
     expect(res.signature).toBeDefined;

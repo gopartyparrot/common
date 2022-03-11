@@ -3,36 +3,59 @@ import {
   TransactionEnvelope as SaberTransactionEnvelope,
   TransactionReceipt,
 } from "@saberhq/solana-contrib";
+import { sleep } from "@project-serum/common";
 import { Finality } from "@solana/web3.js";
 
 export interface BroadcastOptions extends SaberBroadcastOptions {
-  retry?: boolean;
+  resend?: number;
   commitment?: Finality;
 }
+export class RetriableTransactionEnvelope extends SaberTransactionEnvelope {
+  static from(envelope: SaberTransactionEnvelope) {
+    return new RetriableTransactionEnvelope(
+      envelope.provider,
+      envelope.instructions,
+      envelope.signers
+    );
+  }
 
-export class TransactionEnvelope extends SaberTransactionEnvelope {
+  partition(): RetriableTransactionEnvelope[] {
+    const txns = super.partition();
+    return txns.map((envelope) => RetriableTransactionEnvelope.from(envelope));
+  }
+
+  async confirmAll(opts?: BroadcastOptions): Promise<TransactionReceipt[]> {
+    const receipts: TransactionReceipt[] = [];
+    const txns = this.partition();
+    for (const txn of txns) {
+      receipts.push(await txn.confirm(opts));
+    }
+    return receipts;
+  }
+
   async confirm(opts?: BroadcastOptions): Promise<TransactionReceipt> {
-    if (!opts || !opts.retry) {
+    if (!opts || !opts.resend) {
       return super.confirm(opts);
     }
-    while (true) {
+    for (let i = 0; i < opts.resend; i++) {
       try {
         const signed = await this.provider.signer.sign(
           this.build(),
           this.signers,
           opts
         );
-        const pendingTx = await this.provider.broadcaster.broadcast(
-          signed,
-          opts
-        );
-        return pendingTx.pollForReceipt({
-          commitment: opts.commitment ?? "finalized",
+        const pendingTx = await this.provider.broadcaster.broadcast(signed);
+        return await pendingTx.wait({
+          ...opts,
+          retries: 12,
+          minTimeout: 60000,
         });
       } catch (e) {
+        await sleep(3000);
         // just ignore the error and send the tx with new blockhash
         continue;
       }
     }
+    throw new Error("timeout");
   }
 }

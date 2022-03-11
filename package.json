@@ -8,14 +8,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "rm -r ./dist && tsc",
     "test": "jest"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@project-serum/common": "^0.0.1-beta.3",
     "@project-serum/associated-token": "^0.1.1",
     "@project-serum/token": "^0.1.0",
     "@saberhq/solana-contrib": "^1.12.48",
-    "@solana/web3.js": "^1.36.0"
+    "@solana/web3.js": "^1.30.2"
   },
   "devDependencies": {
     "@project-serum/anchor": "^0.16.0",
