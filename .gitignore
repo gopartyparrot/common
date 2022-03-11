@@ -3,3 +3,4 @@ dist
 proposals/proposals.ts
 .env
 yarn-error.log
+id.json

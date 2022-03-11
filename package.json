@@ -8,13 +8,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "dependencies": {
+    "@project-serum/associated-token": "^0.1.1",
+    "@project-serum/token": "^0.1.0",
     "@saberhq/solana-contrib": "^1.12.48",
     "@solana/web3.js": "^1.36.0"
   },
   "devDependencies": {
+    "@project-serum/anchor": "^0.16.0",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3",
     "ts-node": "^10.7.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.2"
