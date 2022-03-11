@@ -1,0 +1,22 @@
+{
+  "name": "@parrotfi/common",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:gopartyparrot/common.git",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@saberhq/solana-contrib": "^1.12.48",
+    "@solana/web3.js": "^1.36.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.2"
+  }
+}
