@@ -1,8 +1,7 @@
 {
   "name": "@parrotfi/common",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "repository": "git@github.com:gopartyparrot/common.git",
   "author": "",
   "license": "MIT",
