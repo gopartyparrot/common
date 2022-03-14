@@ -1,7 +1,7 @@
 {
   "name": "@parrotfi/common",
   "version": "1.0.0",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "git@github.com:gopartyparrot/common.git",
   "author": "",
