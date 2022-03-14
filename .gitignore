@@ -1,5 +1,4 @@
 node_modules
-dist
 proposals/proposals.ts
 .env
 yarn-error.log
