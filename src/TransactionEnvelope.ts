@@ -3,8 +3,8 @@ import {
   TransactionEnvelope as SaberTransactionEnvelope,
   TransactionReceipt,
 } from "@saberhq/solana-contrib";
-import { sleep } from "@project-serum/common";
 import { Finality } from "@solana/web3.js";
+import { sleep } from "./sleep";
 
 export interface BroadcastOptions extends SaberBroadcastOptions {
   resend?: number;
