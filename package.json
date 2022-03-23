@@ -11,7 +11,7 @@
     "build": "rm -r ./dist && tsc",
     "test": "jest"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@project-serum/common": "^0.0.1-beta.3",
     "@project-serum/associated-token": "^0.1.1",
     "@project-serum/token": "^0.1.0",

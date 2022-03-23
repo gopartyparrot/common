@@ -52,6 +52,7 @@ export class RetriableTransactionEnvelope extends SaberTransactionEnvelope {
         });
       } catch (e) {
         await sleep(3000);
+        console.error(e);
         // just ignore the error and send the tx with new blockhash
         continue;
       }

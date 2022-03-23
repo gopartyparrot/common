@@ -255,7 +255,14 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.16.7"
 
-"@babel/runtime@^7.10.5", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5":
+"@babel/runtime@^7.10.5":
+  version "7.17.8"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.8.tgz#3e56e4aff81befa55ac3ac6a0967349fd1c5bca2"
+  integrity sha512-dQpEpK0O9o6lj6oPu0gRDbbnk+4LeHlNcBpspf6Olzt3GIX4P1lWF1gS+pHLDFlaJvbR6q7jCfQ08zA4QJBnmA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5":
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
   integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
@@ -626,9 +633,9 @@
     bn.js "^5.1.3"
 
 "@saberhq/solana-contrib@^1.12.48":
-  version "1.12.50"
-  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.50.tgz#eb4737ba0320704ffd29aeaedc0f667696b2cbf6"
-  integrity sha512-rbUDONrAPnhZcblgavr0vU5eptBnNE0qiRnPBlL9j5tXn461tBaOyNe4grO5kfoNn9gsNY00szVal4VBvkxdVw==
+  version "1.12.56"
+  resolved "https://registry.yarnpkg.com/@saberhq/solana-contrib/-/solana-contrib-1.12.56.tgz#0472ba6960d9993c37808697d7afff5b63e11b14"
+  integrity sha512-b6Szv+XqJE9pFqQ6QfQluRyvQIXAdmLk/KrZ2Ks/XtQVMX2ZxdBf5mGozGNa8NzuzgeOzj/BQ8akbAazfll5dw==
   dependencies:
     "@types/promise-retry" "^1.1.3"
     "@types/retry" "^0.12.1"
